@@ -1,4 +1,4 @@
-package GoCar
+package gocar
 
 import (
 	"io"
