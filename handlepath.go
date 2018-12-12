@@ -23,7 +23,7 @@ func HandlePath(path string, handler func(http.ResponseWriter, *http.Request) er
 		en := l.isLoggerEnabled()
 
 		if en == true {
-			l.initialize(res, req)
+			l.Initialize(res, req)
 		}
 
 		var err error
@@ -45,7 +45,7 @@ func HandlePath(path string, handler func(http.ResponseWriter, *http.Request) er
 			if !en && !errorHandler(err, res, req.Method, path) {
 				infoLog(req.Method, path, elapsed)
 			} else if en == true {
-				l.log(res, req)
+				l.Log(res, req)
 			}
 		}
 	})

@@ -7,8 +7,8 @@ import (
 )
 
 type Logger struct {
-	initialize func(http.ResponseWriter, *http.Request)
-	log        func(http.ResponseWriter, *http.Request)
+	Initialize func(http.ResponseWriter, *http.Request)
+	Log        func(http.ResponseWriter, *http.Request)
 }
 
 var l Logger
@@ -25,7 +25,7 @@ func init() {
 }
 
 func (l Logger) isLoggerEnabled() bool {
-	if l.initialize == nil && l.log == nil {
+	if l.Initialize == nil && l.Log == nil {
 		return false
 	}
 	return true
